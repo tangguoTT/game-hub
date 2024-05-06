@@ -21,7 +21,7 @@ const useGenres = () => {
     const controller = new AbortController();
     setLoading(true);
     apiClient
-      .get<FetchGenresResponse>("/games", { signal: controller.signal })
+      .get<FetchGenresResponse>("/genres", { signal: controller.signal })
       .then((res) => {
         setGenres(res.data.results);
         setLoading(false);
