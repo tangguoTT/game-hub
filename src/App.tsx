@@ -9,13 +9,20 @@ function App() {
       templateAreas={{
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
+        xl: `"nav nav" "aside main"`,
+      }}
+      // 在Chrkra UI库中，templateColumns是一个用于定义网格布局列宽的属性。
+      templateColumns={{
+        base: "1fr",
+        lg: "200px 1fr",
+        xl: "200px 1fr",
       }}
     >
       <GridItem area="nav">
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside">
+        <GridItem area="aside" paddingX={5}>
           <GenreList />
         </GridItem>
       </Show>

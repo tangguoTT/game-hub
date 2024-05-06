@@ -10,12 +10,12 @@ const GameGrid = () => {
     <>
       {error && <Text>{error}</Text>}
       <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 3 }}
-        padding="10px"
-        spacing={10}
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+        padding="20px"
+        spacing={3}
       >
         {isLoading &&
-          Array(6)
+          Array(8)
             .fill("")
             .map((_, index) => (
               <GameCardContainer key={index}>
