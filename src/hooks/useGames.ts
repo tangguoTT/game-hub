@@ -1,3 +1,4 @@
+import { GameQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
@@ -15,15 +16,17 @@ export interface Game {
   metacritic: number;
 }
 
-const useGames = (
-  selectedGenre: Genre | null,
-  selectedPlatform: Platform | null
-) =>
-  // 在给定的代码中，selectedGenre?.id 表示如果 selectedGenre 存在且不为 null，则返回其 id 属性的值；否则返回 undefined。
+const useGames = (gameQuery: GameQuery) =>
+  // 在给定的代码中，selectedGenre?.id 表示如果 selectedGenre 存在且不为 null或undefined，则返回其 id 属性的值；否则返回 undefined。
   useData<Game>(
     "/games",
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+      },
+    },
+    [gameQuery]
   );
 
 export default useGames;
