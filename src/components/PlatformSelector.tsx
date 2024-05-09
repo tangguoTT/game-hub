@@ -13,8 +13,8 @@ const PlatformSelector = ({
   selectedPlateform,
 }: Props) => {
   const { data: plaforms, error, isLoading } = usePlatforms();
-  if (error) return null;
-  if (isLoading) return null;
+  // if (error) return null;
+  // if (isLoading) return null;
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
